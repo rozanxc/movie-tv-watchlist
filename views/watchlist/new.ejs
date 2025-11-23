@@ -1,0 +1,40 @@
+<%- include("../partials/header") %>
+
+<h2 class="mb-3">Add a New Item</h2>
+
+<!-- When submitted, this form sends a POST to /watchlist -->
+<form action="/watchlist" method="POST" class="row g-3">
+  <div class="col-12">
+    <label class="form-label">Title</label>
+    <input type="text" name="title" class="form-control" required />
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Type</label>
+    <select name="type" class="form-select">
+      <option value="Movie">Movie</option>
+      <option value="TV">TV</option>
+    </select>
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Status</label>
+    <select name="status" class="form-select">
+      <option value="Planned">Planned</option>
+      <option value="Watching">Watching</option>
+      <option value="Finished">Finished</option>
+    </select>
+  </div>
+
+  <div class="col-12">
+    <label class="form-label">Notes (optional)</label>
+    <textarea name="notes" class="form-control" rows="3"></textarea>
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="/watchlist" class="btn btn-secondary">Cancel</a>
+  </div>
+</form>
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,37 @@
+<%- include("../partials/header") %>
+
+<h2 class="mb-3">My Watchlist</h2>
+
+<!-- If there are no items, show message -->
+<% if (items.length === 0) { %>
+  <p>No items yet. <a href="/watchlist/new">Add your first movie or show.</a></p>
+<% } else { %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Notes</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% items.forEach(item => { %>
+        <tr>
+          <td><%= item.title %></td>
+          <td><%= item.type %></td>
+          <td><%= item.status %></td>
+          <td><%= item.notes || "-" %></td>
+          <td>
+            <!-- Simple links to edit and delete pages -->
+            <a class="btn btn-sm btn-outline-primary" href="/watchlist/<%= item._id %>/edit">Edit</a>
+            <a class="btn btn-sm btn-outline-danger" href="/watchlist/<%= item._id %>/delete">Delete</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } %>
+
+<%- include("../partials/footer") %>
